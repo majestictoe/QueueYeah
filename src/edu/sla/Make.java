@@ -6,9 +6,25 @@ public class Make implements Runnable{
         theQueue = queue;
     }
     public void run(){
-        for (int i = 0; i < 100; i++) {
-            theQueue.put(i);
-        }
+      for (int j = 0; j<3; j++) {
+          for (int i = 0; i < 100; i++) {
+//              if (theQueue.isMakeWaiting() == "no") {
+                  while (!theQueue.put(i)) {
+                      Thread.currentThread().yield();
 
+                  }
+//              } else {
+//                  while (theQueue.isMakeWaiting() == "yes") {
+//                      Thread.currentThread().yield();
+//                  }
+//                  theQueue.put(i);
+//              }
+              if (i==99){
+                      theQueue.changeHundreds();
+              }
+          }
+
+//          theQueue.changeHundreds();
+      }
     }
 }

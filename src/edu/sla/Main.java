@@ -45,7 +45,7 @@ public class Main {
         SuperBoi Queue = new SuperBoi();
         int threads = 4;
         if(threads==4){
-            for (int k = 0; k < 3; k++) {
+//            for (int k = 0; k < 4; k++) {
                 Runnable yeet = new Make(Queue);
                 Thread letsGo = new Thread(yeet);
                 letsGo.start();
@@ -53,7 +53,7 @@ public class Main {
                 Runnable woo = new Print(Queue);
                 Thread yes = new Thread(woo);
                 yes.start();
-            }
+//            }
         }
     }
 }
